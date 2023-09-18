@@ -6,5 +6,6 @@ import movieSchema from "../schemas/movieSchema";
 const moviesRoute = Router()
 moviesRoute.post("/movies",validateSchemas(movieSchema), moviesController.moviesPost)
 moviesRoute.get("/movies", moviesController.getMovies)
+moviesRoute.put("/movies/:id",validateSchemas(movieSchema), moviesController.updateMovie)
 
 export default moviesRoute

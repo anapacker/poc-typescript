@@ -14,8 +14,15 @@ async function getAllMovies(): Promise<Movie> {
   const movies = await db.query<Movie>(`SELECT * FROM movies`)
   return movies.rows[0]
 }
+async function update(movie:Movie) {
+  return await db.query(`
+  UPDATE movies 
+  SET name = $2, ano = $3, "plataformaId" = $4, genero = $5, assistido = $6 
+  WHERE id=$1`, [movie.id, movie.name, movie.ano,movie.plataformaId, movie.genero,movie.assistido])
+}
 
 export const moviesRepository ={
   insert,
-  getAllMovies
+  getAllMovies,
+  update
 }
