@@ -16,7 +16,16 @@ async function getPlatforms(req: Request, res: Response) {
   res.send(platform)
 }
 
-export const plataformsController = {
+async function updatePlatform(req:Request, res:Response) {
+  const {name} = req.body
+  const id = parseInt(req.params.id)
+
+  await platformsServices.updatePlatformById(name, id)
+
+  res.sendStatus(httpStatus.OK)
+}
+export const platformsController = {
  platformsPost,
- getPlatforms
+ getPlatforms,
+ updatePlatform
 }

@@ -6,7 +6,7 @@ async function createMovies(movie: CreateMovie){
   
 }
 
-async function getAllMovies(): Promise<Movie>{
+async function getAllMovies(): Promise<Movie[]>{
   const movies = await moviesRepository.getAllMovies()
   return movies
 }

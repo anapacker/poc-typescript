@@ -9,7 +9,12 @@ async function getAllPlatforms() {
   const platform = await platformsRepository.getPlatforms()
   return  platform
 }
+
+async function updatePlatformById(name: string, id:number) {
+  await platformsRepository.update(name, id)
+}
 export const platformsServices = { 
   createPlatforms,
-  getAllPlatforms
+  getAllPlatforms,
+  updatePlatformById
 }

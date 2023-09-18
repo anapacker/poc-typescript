@@ -10,9 +10,9 @@ async function insert(movie: CreateMovie){
   )
 }
 
-async function getAllMovies(): Promise<Movie> {
+async function getAllMovies(): Promise<Movie[]> {
   const movies = await db.query<Movie>(`SELECT * FROM movies`)
-  return movies.rows[0]
+  return movies.rows
 }
 async function update(movie:Movie) {
   return await db.query(`
