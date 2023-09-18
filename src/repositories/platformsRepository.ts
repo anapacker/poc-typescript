@@ -6,7 +6,12 @@ async function insert(name: string){
     `, [name]
   )
 }
+async function getPlatforms() {
+  const platform = await db.query(`SELECT * FROM plataforma`)
+  return platform.rows[0]
+}
 
 export const platformsRepository ={
-  insert
+  insert,
+  getPlatforms
 }

@@ -1,5 +1,5 @@
 import { db } from "../database"
-import { CreateMovie } from "protocols"
+import { CreateMovie, Movie } from "protocols"
 
 async function insert(movie: CreateMovie){
   return await db.query<CreateMovie>(
@@ -10,6 +10,12 @@ async function insert(movie: CreateMovie){
   )
 }
 
+async function getAllMovies(): Promise<Movie> {
+  const movies = await db.query<Movie>(`SELECT * FROM movies`)
+  return movies.rows[0]
+}
+
 export const moviesRepository ={
-  insert
+  insert,
+  getAllMovies
 }

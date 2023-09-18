@@ -11,6 +11,12 @@ async function platformsPost(req: Request, res: Response){
   
 }
 
+async function getPlatforms(req: Request, res: Response) {
+  const platform = await platformsServices.getAllPlatforms()
+  res.send(platform)
+}
+
 export const plataformsController = {
- platformsPost
+ platformsPost,
+ getPlatforms
 }

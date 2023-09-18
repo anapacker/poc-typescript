@@ -12,6 +12,12 @@ async function moviesPost(req: Request, res: Response){
   
 }
 
+async function getMovies(req: Request, res: Response){
+  const movie = await moviesServices.getAllMovies()
+  res.send(movie)
+}
+
 export const moviesController = {
-  moviesPost
+  moviesPost,
+  getMovies
 }
