@@ -8,5 +8,6 @@ moviesRoute.post("/movies",validateSchemas(movieSchema), moviesController.movies
 moviesRoute.get("/movies", moviesController.getMovies)
 moviesRoute.put("/movies/:id",validateSchemas(movieSchema), moviesController.updateMovie)
 moviesRoute.delete("/movies/:id", moviesController.deleteMovie)
+moviesRoute.get("/movies/countByPlatform", moviesController.countByPlatform)
 
 export default moviesRoute

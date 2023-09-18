@@ -16,6 +16,12 @@ async function getMovies(req: Request, res: Response){
   const movie = await moviesServices.getAllMovies()
   res.send(movie)
 }
+
+async function countByPlatform(req: Request, res: Response) {
+  const count = await moviesServices.countPlatform()
+  res.send(count)
+}
+
 async function updateMovie(req:Request, res:Response) {
   const body = req.body as CreateMovie
   const id = parseInt(req.params.id)
@@ -37,5 +43,6 @@ export const moviesController = {
   moviesPost,
   getMovies,
   updateMovie,
-  deleteMovie
+  deleteMovie,
+  countByPlatform
 }
