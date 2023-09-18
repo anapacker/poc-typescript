@@ -7,5 +7,6 @@ const moviesRoute = Router()
 moviesRoute.post("/movies",validateSchemas(movieSchema), moviesController.moviesPost)
 moviesRoute.get("/movies", moviesController.getMovies)
 moviesRoute.put("/movies/:id",validateSchemas(movieSchema), moviesController.updateMovie)
+moviesRoute.delete("/movies/:id", moviesController.deleteMovie)
 
 export default moviesRoute

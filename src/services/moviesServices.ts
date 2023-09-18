@@ -13,8 +13,13 @@ async function getAllMovies(): Promise<Movie[]>{
 async function updateMovieById(movie: Movie) {
   await moviesRepository.update(movie)
 }
+async function deleteMovieById(id: number) {
+  await moviesRepository.deleteMovie(id)
+  
+}
 export const moviesServices = { 
   createMovies,
   getAllMovies,
-  updateMovieById
+  updateMovieById,
+  deleteMovieById
 }

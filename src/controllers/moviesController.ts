@@ -25,9 +25,17 @@ async function updateMovie(req:Request, res:Response) {
 
   res.sendStatus(httpStatus.OK)
 }
+async function deleteMovie(req:Request, res:Response) {
+  const id = parseInt(req.params.id)
+
+  await moviesServices.deleteMovieById(id)
+  
+  res.sendStatus(httpStatus.OK)
+}
 
 export const moviesController = {
   moviesPost,
   getMovies,
-  updateMovie
+  updateMovie,
+  deleteMovie
 }
